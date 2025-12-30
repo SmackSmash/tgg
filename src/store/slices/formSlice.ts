@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 type FormState = {
   postcode?: string;
 };
+
 const initialState: FormState = {};
 
 const formSlice = createSlice({
