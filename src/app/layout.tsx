@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Providers from '../components/providers';
 import Header from '../components/header';
+import Footer from '../components/footer';
 import './globals.css';
 
 // import Image from 'next/image';
@@ -18,10 +19,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' className='bg-zinc-800'>
-      <body className='mx-auto my-2 w-93.75 bg-white antialiased'>
-        {/* <Image src={Overlay} alt='Overlay' className='absolute opacity-50' /> */}
-        <Header />
-        <Providers>{children}</Providers>
+      <body className='relative mx-auto my-2 w-93.75 bg-white antialiased'>
+        {/* <Image src={Overlay} alt='Overlay' className='absolute bottom-0 opacity-50' /> */}
+        <Providers>
+          <Header />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
