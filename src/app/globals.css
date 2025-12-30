@@ -2,11 +2,11 @@
 
 @font-face {
   font-family: TikTok;
-  src: url('../../public/tiktoksans-variable.ttf');
+  src: url('@/public/fonts/tiktoksans-variable.ttf');
 }
 @font-face {
   font-family: CharlesWright;
-  src: url('../../public/charleswright-bold.otf');
+  src: url('@/public/fonts/charleswright-bold.otf');
 }
 @theme {
   --font-charleswright: 'CharlesWright', sans-serif;

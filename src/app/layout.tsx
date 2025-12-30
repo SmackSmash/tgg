@@ -1,6 +1,10 @@
 import type { Metadata } from 'next';
 import Providers from '../components/providers';
+import Header from '../components/header';
 import './globals.css';
+
+// import Image from 'next/image';
+// import Overlay from '@/public/overlays/lp-short.png';
 
 export const metadata: Metadata = {
   title: 'TGG Test',
@@ -13,8 +17,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en' className='bg-black'>
-      <body className='mx-auto w-93.75 bg-white antialiased'>
+    <html lang='en' className='bg-zinc-800'>
+      <body className='mx-auto my-2 w-93.75 bg-white antialiased'>
+        {/* <Image src={Overlay} alt='Overlay' className='absolute opacity-50' /> */}
+        <Header />
         <Providers>{children}</Providers>
       </body>
     </html>
