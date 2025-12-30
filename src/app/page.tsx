@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import TopBanner from '../components/top-banner';
 import CTAButton from '../components/cta-button';
+import Trust from '../components/trust';
 import SearchIcon from '@/public/search.svg';
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
         <Image src={SearchIcon} alt='Search Icon' />
         Find My Agreements
       </CTAButton>
+      <Trust />
     </main>
   );
 }

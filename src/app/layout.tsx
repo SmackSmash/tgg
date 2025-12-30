@@ -4,8 +4,8 @@ import Header from '../components/header';
 import Footer from '../components/footer';
 import './globals.css';
 
-import Image from 'next/image';
-import Overlay from '@/public/overlays/lp-short.png';
+// import Image from 'next/image';
+// import Overlay from '@/public/overlays/lp-short.png';
 
 export const metadata: Metadata = {
   title: 'TGG Test',
@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang='en' className='bg-zinc-800'>
       <body className='relative mx-auto my-2 w-93.75 bg-white antialiased'>
-        <Image src={Overlay} alt='Overlay' className='absolute opacity-100' />
+        {/* <Image src={Overlay} alt='Overlay' className='absolute opacity-50' /> */}
         <Providers>
           <Header />
           {children}
