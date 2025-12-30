@@ -20,6 +20,17 @@ export default function Home() {
         Find My Agreements
       </CTAButton>
       <Trust />
+      <ul className='flex list-image-[url(@/public/check.svg)] flex-col gap-5 px-11 pt-3'>
+        <li className='pl-3'>
+          Check in under <strong>60 seconds</strong>
+        </li>
+        <li className='pl-3'>
+          <strong>Free</strong> agreement finder
+        </li>
+        <li className='pl-3'>
+          <strong>1 Million+</strong> drivers signed up
+        </li>
+      </ul>
     </main>
   );
 }
