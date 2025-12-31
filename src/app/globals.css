@@ -18,6 +18,7 @@
   --color-lenders-grey: rgba(217, 217, 217, 1);
   --color-pcp-grey: rgba(84, 82, 82, 1);
   --color-input-grey: rgba(241, 241, 241, 1);
+  --color-greyed-text: rgba(131, 132, 138, 1);
 }
 body {
   font-family: 'TikTok', Arial, Helvetica, sans-serif;

@@ -4,3 +4,8 @@ export type Address = {
   town: string;
   county: string;
 };
+
+export type Option = {
+  label: string | number;
+  value: string | number;
+};
