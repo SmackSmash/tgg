@@ -1,7 +1,9 @@
-type TextInputProps = {
-  placeholder: string;
-};
-
-export default function TextInput({ placeholder }: TextInputProps) {
-  return <input type='text' placeholder={placeholder} className='bg-input-grey grow' />;
+export default function TextInput({ ...rest }) {
+  return (
+    <input
+      type='text'
+      {...rest}
+      className='bg-input-grey min-w-0 grow rounded-sm px-1.75 py-3.25 outline-0'
+    />
+  );
 }
