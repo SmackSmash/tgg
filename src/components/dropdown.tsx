@@ -54,7 +54,7 @@ export default function Dropdown({ options, value, onChange, placeholder }: Drop
       <div
         onClick={() => setIsOpen(!isOpen)}
         ref={selectRef}
-        className={`border-text-color/80 text-greyed-text flex cursor-pointer items-center gap-7 border px-2 py-3 ${isOpen ? 'rounded-t-sm' : 'rounded-sm'}`}
+        className={`border-text-color/80 flex cursor-pointer items-center gap-7 border px-2 py-3 ${isOpen ? 'rounded-t-sm' : 'rounded-sm'} ${value ? 'text-text-color' : 'text-greyed-text'}`}
       >
         {value ? value.label : placeholder}
         <Image
@@ -66,14 +66,15 @@ export default function Dropdown({ options, value, onChange, placeholder }: Drop
       {isOpen && (
         <div
           style={{ top: `${selectHeight}px` }}
-          className='border-greyed-text absolute z-1 w-full border'
+          className='border-greyed-text absolute z-1 w-full overflow-hidden rounded-b-xs border'
         >
           {options.map((option, index) => {
+            console.log(option, value);
             return (
               <div
                 key={index}
                 onClick={() => handleOptionClick(option)}
-                className='border-greyed-text w-full cursor-pointer border-b bg-white px-2 py-3 last-of-type:border-0'
+                className={`border-greyed-text w-full cursor-pointer border-b bg-white px-2 py-3 last-of-type:border-0 ${option === value ? 'font-semibold' : ''}`}
               >
                 {option.label}
               </div>
