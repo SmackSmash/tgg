@@ -54,7 +54,7 @@ export default function Dropdown({ options, value, onChange, placeholder }: Drop
       <div
         onClick={() => setIsOpen(!isOpen)}
         ref={selectRef}
-        className={`border-text-color/80 flex cursor-pointer items-center gap-7 border px-2 py-3 ${isOpen ? 'rounded-t-sm' : 'rounded-sm'} ${value ? 'text-text-color' : 'text-greyed-text'}`}
+        className={`border-text-color/80 flex cursor-pointer items-center gap-7 border px-2 py-3 ${isOpen ? 'rounded-t-xs' : 'rounded-xs'} ${value ? 'text-text-color' : 'text-greyed-text'}`}
       >
         {value ? value.label : placeholder}
         <Image

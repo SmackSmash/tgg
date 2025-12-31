@@ -3,12 +3,28 @@ import type { Address } from '../../types';
 
 type FormState = {
   postcode: string;
-  address: Address | null;
+  address?: Address | null;
+  title?: string;
+  firstname?: string;
+  surname?: string;
+  dob?: {
+    day: number | null;
+    month: number | null;
+    year: number | null;
+  };
 };
 
 const initialState: FormState = {
   postcode: '',
-  address: null
+  address: null,
+  title: '',
+  firstname: '',
+  surname: '',
+  dob: {
+    day: null,
+    month: null,
+    year: null
+  }
 };
 
 const formSlice = createSlice({

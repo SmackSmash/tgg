@@ -12,20 +12,15 @@ const titleOptions = [
 ];
 
 export default function DetailsForm() {
-  const [selection, setSelection] = useState<Option | null>(null);
+  const [title, setTitle] = useState<Option | null>(null);
 
   const handleSelect = (option: Option) => {
-    setSelection(option);
+    setTitle(option);
   };
 
   return (
     <form className='py-4'>
-      <Dropdown
-        options={titleOptions}
-        value={selection}
-        onChange={handleSelect}
-        placeholder='Title'
-      />
+      <Dropdown options={titleOptions} value={title} onChange={handleSelect} placeholder='Title' />
     </form>
   );
 }
