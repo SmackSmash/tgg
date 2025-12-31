@@ -22,6 +22,7 @@ export default function AddressForm() {
           value={address![key as keyof typeof address]}
           onChange={handleChange}
           name={key}
+          required={key === 'line1' || key === 'town' || key === 'county'}
         />
       ))}
       <p>Please check the details above are correct before continuing.</p>
