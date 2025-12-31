@@ -13,8 +13,10 @@
   --color-text-color: rgba(22, 24, 35, 1);
   --color-border-grey: rgba(0, 0, 0, 0.15);
   --color-cta-red: rgba(255, 0, 79, 1);
+  --color-lenders-grey: rgba(217, 217, 217, 1);
+  --color-pcp-grey: rgba(84, 82, 82, 1);
 }
 body {
   font-family: 'TikTok', Arial, Helvetica, sans-serif;
-  color: rgba(22, 24, 35, 1);
+  color: var(--color-text-color);
 }

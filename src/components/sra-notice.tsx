@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function SRANotice() {
   return (
-    <section className='pr-3 pb-5 pl-5 text-[11px] font-light'>
+    <section className='py-5 pr-3 pl-5 text-[11px] font-light'>
       <Image src={SRALogo} alt='SRA Logo' className='pb-5' />
       <p className='pb-5 leading-5'>
         PCP Pal is a trading style of Courmacs Legal Limited. Registered in England and Wales,

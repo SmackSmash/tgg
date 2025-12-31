@@ -2,8 +2,8 @@ import Image from 'next/image';
 import TopBanner from '../components/top-banner';
 import CTALink from '../components/cta-link';
 import Trust from '../components/trust';
-import SearchIcon from '@/public/search.svg';
 import Lenders from '../components/lenders';
+import SearchIcon from '@/public/search.svg';
 
 export default function Home() {
   return (
@@ -22,7 +22,7 @@ export default function Home() {
           Find My Agreements
         </CTALink>
         <Trust />
-        <ul className='flex list-image-[url(@/public/check.svg)] flex-col gap-5 px-11 pt-3'>
+        <ul className='flex list-image-[url(@/public/check.svg)] flex-col gap-5 px-11 pt-3 pb-4.5'>
           <li className='pl-3'>
             Check in under <strong>60 seconds</strong>
           </li>
