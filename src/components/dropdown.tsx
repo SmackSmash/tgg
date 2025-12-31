@@ -69,7 +69,6 @@ export default function Dropdown({ options, value, onChange, placeholder }: Drop
           className='border-greyed-text absolute z-1 w-full overflow-hidden rounded-b-xs border'
         >
           {options.map((option, index) => {
-            console.log(option, value);
             return (
               <div
                 key={index}
