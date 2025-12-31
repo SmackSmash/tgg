@@ -17,7 +17,7 @@ export default function Home() {
           Check in under 60 seconds to see if you&apos;re owed compensation. Use the free agreement
           finder to start your claim.
         </p>
-        <CTALink href='/address'>
+        <CTALink href='/address' ring>
           <Image src={SearchIcon} alt='Search Icon' />
           Find My Agreements
         </CTALink>

@@ -5,8 +5,7 @@ type AccordionProps = { items: { label: string; content: string }[] };
 export default function Accordion({ items }: AccordionProps) {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
-  const handleClick = (index: number) =>
-    index === expandedIndex ? setExpandedIndex(null) : setExpandedIndex(index);
+  const handleClick = (index: number) => setExpandedIndex(index === expandedIndex ? null : index);
 
   return (
     <dl className='flex w-full flex-col gap-1 pt-4 pb-7 pl-2'>

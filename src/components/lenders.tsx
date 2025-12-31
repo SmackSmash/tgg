@@ -25,7 +25,7 @@ const faqAccordionData = [
 ];
 
 export default function Lenders() {
-  const [faqOpen, setFaqOpen] = useState(true);
+  const [faqOpen, setFaqOpen] = useState(false);
 
   return (
     <section className='flex flex-col gap-4 bg-black px-2.5 py-5'>
@@ -42,7 +42,7 @@ export default function Lenders() {
         <div className='bg-white px-4 pt-5.5 pb-9'>
           <h2 className='text-2xl font-semibold'>Frequently Asked Questions</h2>
           <Accordion items={faqAccordionData} />
-          <CTALink href='/address'>
+          <CTALink href='/address' ring>
             <Image src={SearchIcon} alt='Search Icon' />
             Find My Agreements
           </CTALink>

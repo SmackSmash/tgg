@@ -6,6 +6,7 @@ import TopBanner from '../../components/top-banner';
 import Trust from '@/src/components/trust';
 import House from '@/public/house.svg';
 import PostcodeSearch from '@/src/components/postcode-search';
+import AddressForm from '@/src/components/address-form';
 
 export default function Address() {
   const address = useAppSelector(({ form: { address } }) => address);
@@ -25,7 +26,7 @@ export default function Address() {
         </div>
       </section>
       <PostcodeSearch />
-      {address && address.line1}
+      {address && <AddressForm />}
       <Trust />
     </main>
   );
