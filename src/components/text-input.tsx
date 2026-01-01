@@ -16,9 +16,11 @@ export default function TextInput({ required, value, ...rest }: TextInputProps) 
         value={value}
         {...rest}
         onBlur={() => setTouched(true)}
-        className='bg-input-grey min-w-0 grow rounded-sm px-1.75 py-3.25 outline-0'
+        className='bg-input-grey min-w-0 grow rounded-xs px-1.75 py-3.25 outline-0'
       />
-      {required && touched && !value.length && <p>This is a required field</p>}
+      {required && touched && !value.length && (
+        <p className='text-cta-red'>This is a required field</p>
+      )}
     </>
   );
 }
