@@ -43,7 +43,7 @@ export default function DetailsForm() {
   } = details;
 
   return (
-    <form className='flex flex-col gap-4 py-4'>
+    <form className='flex flex-col gap-5 pt-4'>
       <Dropdown
         options={titleOptions}
         value={{ label: title, value: title }}
@@ -64,32 +64,34 @@ export default function DetailsForm() {
         onChange={handleChange}
         required
       />
-      <p>Date of Birth</p>
-      <div className='flex gap-4'>
-        <div className='min-w-0'>
-          <NumberInput placeholder='DD' name='day' value={day} onChange={handleChange} required />
-        </div>
-        <div className='min-w-0'>
-          <NumberInput
-            placeholder='MM'
-            name='month'
-            value={month}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className='min-w-0'>
-          <NumberInput
-            placeholder='YYYY'
-            name='year'
-            value={year}
-            onChange={handleChange}
-            required
-          />
+      <div>
+        <p className='pb-1.5'>Date of Birth</p>
+        <div className='flex gap-5'>
+          <div className='min-w-0'>
+            <NumberInput placeholder='DD' name='day' value={day} onChange={handleChange} required />
+          </div>
+          <div className='min-w-0'>
+            <NumberInput
+              placeholder='MM'
+              name='month'
+              value={month}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className='min-w-0'>
+            <NumberInput
+              placeholder='YYYY'
+              name='year'
+              value={year}
+              onChange={handleChange}
+              required
+            />
+          </div>
         </div>
       </div>
       <CTALink
-        href='/personal-details'
+        href='/contact-information'
         disabled={!title || !firstname || !surname || !day || !month || !year}
       >
         Next

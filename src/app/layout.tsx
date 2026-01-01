@@ -5,7 +5,7 @@ import Footer from '../components/footer';
 import './globals.css';
 
 import Image from 'next/image';
-import Overlay from '@/public/overlays/q2-personal-details.png';
+import Overlay from '@/public/overlays/q1-address.png';
 
 export const metadata: Metadata = {
   title: 'TGG Test',
