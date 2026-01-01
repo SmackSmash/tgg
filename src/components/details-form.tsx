@@ -1,8 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { type ChangeEvent } from 'react';
+import { useAppDispatch, useAppSelector } from '../store/hooks';
+import { addDetails } from '../store';
 import { type Option } from '../types';
 import Dropdown from './dropdown';
+import TextInput from './text-input';
 
 const titleOptions = [
   { label: 'Mr', value: 'Mr' },
@@ -12,15 +15,41 @@ const titleOptions = [
 ];
 
 export default function DetailsForm() {
-  const [title, setTitle] = useState<Option | null>(null);
+  const details = useAppSelector(({ form: { details } }) => details);
+  const dispatch = useAppDispatch();
 
   const handleSelect = (option: Option) => {
-    setTitle(option);
+    dispatch(addDetails({ ...details, title: option.value }));
   };
 
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    dispatch(addDetails({ ...details, [e.target.name]: e.target.value }));
+  };
+
+  const { title, firstname, surname } = details;
+
   return (
-    <form className='py-4'>
-      <Dropdown options={titleOptions} value={title} onChange={handleSelect} placeholder='Title' />
+    <form className='flex flex-col gap-4 py-4'>
+      <Dropdown
+        options={titleOptions}
+        value={{ label: title, value: title }}
+        onChange={handleSelect}
+        placeholder='Title'
+      />
+      <TextInput
+        placeholder='First Name'
+        name='firstname'
+        value={firstname}
+        onChange={handleChange}
+        required
+      />
+      <TextInput
+        placeholder='Surname'
+        name='surname'
+        value={surname}
+        onChange={handleChange}
+        required
+      />
     </form>
   );
 }

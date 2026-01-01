@@ -56,7 +56,7 @@ export default function Dropdown({ options, value, onChange, placeholder }: Drop
         ref={selectRef}
         className={`border-text-color/80 flex cursor-pointer items-center gap-7 border px-2 py-3 ${isOpen ? 'rounded-t-xs' : 'rounded-xs'} ${value ? 'text-text-color' : 'text-greyed-text'}`}
       >
-        {value ? value.label : placeholder}
+        {value?.label ? value.label : placeholder}
         <Image
           src={isOpen ? DropdownClose : DropdownOpen}
           alt='Toggle Dropdown Icon'

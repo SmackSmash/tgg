@@ -3,27 +3,31 @@ import type { Address } from '../../types';
 
 type FormState = {
   postcode: string;
-  address?: Address | null;
-  title?: string;
-  firstname?: string;
-  surname?: string;
-  dob?: {
-    day: number | null;
-    month: number | null;
-    year: number | null;
+  address: Address | null;
+  details: {
+    title: string;
+    firstname: string;
+    surname: string;
+    dob: {
+      day: number | null;
+      month: number | null;
+      year: number | null;
+    };
   };
 };
 
 const initialState: FormState = {
   postcode: '',
   address: null,
-  title: '',
-  firstname: '',
-  surname: '',
-  dob: {
-    day: null,
-    month: null,
-    year: null
+  details: {
+    title: '',
+    firstname: '',
+    surname: '',
+    dob: {
+      day: null,
+      month: null,
+      year: null
+    }
   }
 };
 
@@ -36,9 +40,12 @@ const formSlice = createSlice({
     },
     addAddress: (state, { payload }) => {
       return { ...state, address: payload };
+    },
+    addDetails: (state, { payload }) => {
+      return { ...state, details: payload };
     }
   }
 });
 
-export const { addPostcode, addAddress } = formSlice.actions;
+export const { addPostcode, addAddress, addDetails } = formSlice.actions;
 export default formSlice.reducer;
