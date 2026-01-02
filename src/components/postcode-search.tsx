@@ -15,7 +15,7 @@ export default function PostcodeSearch() {
     register,
     handleSubmit,
     formState: { isValid, errors }
-  } = useForm({ mode: 'onChange' });
+  } = useForm({ mode: 'onTouched' });
   const [isPending, setIsPending] = useState(false);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {

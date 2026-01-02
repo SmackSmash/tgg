@@ -14,7 +14,7 @@ export default function AddressForm() {
   const {
     register,
     formState: { isValid, errors }
-  } = useForm({ mode: 'onChange' });
+  } = useForm({ mode: 'onTouched' });
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     dispatch(addAddress({ ...address, [e.target.name]: e.target.value }));
