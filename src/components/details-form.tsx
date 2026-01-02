@@ -2,11 +2,13 @@
 
 import { type ChangeEvent } from 'react';
 import Image from 'next/image';
+import { useForm } from 'react-hook-form';
 import { useAppDispatch, useAppSelector } from '@/src/store/hooks';
 import { addDetails } from '@/src/store';
 import { type Option } from '@/src/types';
 import Dropdown from '@/src/components/dropdown';
 import TextInput from '@/src/components/text-input';
+import FormError from '@/src/components/form-error';
 import CTALink from '@/src/components/cta-link';
 import NumberInput from '@/src/components/number-input';
 import ChevronRight from '@/public/chevron-right.svg';
@@ -21,6 +23,10 @@ const titleOptions = [
 export default function DetailsForm() {
   const details = useAppSelector(({ form: { details } }) => details);
   const dispatch = useAppDispatch();
+  const {
+    register,
+    formState: { isValid, errors }
+  } = useForm({ mode: 'onTouched' });
 
   const handleSelect = (option: Option) => {
     dispatch(addDetails({ ...details, title: option.value }));
@@ -42,60 +48,79 @@ export default function DetailsForm() {
     dob: { day, month, year }
   } = details;
 
+  console.log(errors);
+
   return (
     <form className='flex flex-col gap-5 pt-4'>
       <Dropdown
+        placeholder='Title'
         options={titleOptions}
         value={{ label: title, value: title }}
         onChange={handleSelect}
-        placeholder='Title'
       />
       <TextInput
         placeholder='First Name'
-        name='firstname'
         value={firstname}
-        onChange={handleChange}
-        required
+        {...register('firstname', {
+          onChange: handleChange,
+          required: 'Please enter a valid first name'
+        })}
       />
+      {errors.firstname?.message && <FormError>{errors.firstname.message as string}</FormError>}
       <TextInput
         placeholder='Surname'
-        name='surname'
         value={surname}
-        onChange={handleChange}
-        required
+        {...register('surname', {
+          onChange: handleChange,
+          required: 'Please enter a valid surname'
+        })}
       />
+      {errors.surname?.message && <FormError>{errors.surname.message as string}</FormError>}
       <div>
         <p className='pb-1.5'>Date of Birth</p>
         <div className='flex gap-5'>
           <div className='min-w-0'>
-            <NumberInput placeholder='DD' name='day' value={day} onChange={handleChange} required />
+            <NumberInput
+              placeholder='DD'
+              value={day}
+              {...register('day', {
+                onChange: handleChange,
+                required: true,
+                min: 1,
+                max: 31
+              })}
+            />
           </div>
           <div className='min-w-0'>
             <NumberInput
               placeholder='MM'
-              name='month'
               value={month}
-              onChange={handleChange}
-              required
+              {...register('month', {
+                onChange: handleChange,
+                required: true,
+                min: 1,
+                max: 12
+              })}
             />
           </div>
           <div className='min-w-0'>
             <NumberInput
               placeholder='YYYY'
-              name='year'
               value={year}
-              onChange={handleChange}
-              required
+              {...register('year', {
+                onChange: handleChange,
+                required: true,
+                min: 1900,
+                max: 3000
+              })}
             />
           </div>
         </div>
+        {(errors.day || errors.month || errors.year) && (
+          <FormError>Please enter a valid date</FormError>
+        )}
       </div>
-      <CTALink
-        href='/contact-information'
-        disabled={
-          !title || !firstname || !surname || !day || !month || !year || year.toString().length < 4
-        }
-      >
+      <CTALink href='/contact-information' disabled={!isValid || !title.length}>
         Next
         <Image src={ChevronRight} alt='Right Arrow Icon' />
       </CTALink>
