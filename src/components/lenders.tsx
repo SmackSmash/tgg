@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import CTALink from './cta-link';
-import Accordion from './accordion';
+import CTALink from '@/src/components/cta-link';
+import Accordion from '@/src/components/accordion';
 import SearchIcon from '@/public/search.svg';
 
 const faqAccordionData = [

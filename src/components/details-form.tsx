@@ -2,14 +2,14 @@
 
 import { type ChangeEvent } from 'react';
 import Image from 'next/image';
-import { useAppDispatch, useAppSelector } from '../store/hooks';
-import { addDetails } from '../store';
-import { type Option } from '../types';
-import Dropdown from './dropdown';
-import TextInput from './text-input';
-import CTALink from './cta-link';
+import { useAppDispatch, useAppSelector } from '@/src/store/hooks';
+import { addDetails } from '@/src/store';
+import { type Option } from '@/src/types';
+import Dropdown from '@/src/components/dropdown';
+import TextInput from '@/src/components/text-input';
+import CTALink from '@/src/components/cta-link';
+import NumberInput from '@/src/components/number-input';
 import ChevronRight from '@/public/chevron-right.svg';
-import NumberInput from './number-input';
 
 const titleOptions = [
   { label: 'Mr', value: 'Mr' },

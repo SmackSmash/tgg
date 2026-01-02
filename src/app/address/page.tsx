@@ -1,8 +1,8 @@
 'use client';
 
 import Image from 'next/image';
-import { useAppSelector } from '../../store/hooks';
-import TopBanner from '../../components/top-banner';
+import { useAppSelector } from '@/src/store/hooks';
+import TopBanner from '@/src/components/top-banner';
 import Trust from '@/src/components/trust';
 import House from '@/public/house.svg';
 import PostcodeSearch from '@/src/components/postcode-search';

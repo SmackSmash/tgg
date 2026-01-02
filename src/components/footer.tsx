@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import SRANotice from '../components/sra-notice';
+import SRANotice from '@/src/components/sra-notice';
 
 export default function Footer() {
   return (

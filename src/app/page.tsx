@@ -1,8 +1,8 @@
 import Image from 'next/image';
-import TopBanner from '../components/top-banner';
-import CTALink from '../components/cta-link';
-import Trust from '../components/trust';
-import Lenders from '../components/lenders';
+import TopBanner from '@/src/components/top-banner';
+import CTALink from '@/src/components/cta-link';
+import Trust from '@/src/components/trust';
+import Lenders from '@/src/components/lenders';
 import SearchIcon from '@/public/search.svg';
 
 export default function Home() {

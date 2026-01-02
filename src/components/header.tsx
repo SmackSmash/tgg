@@ -1,8 +1,8 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import Logo from '@/public/logo.svg';
 import Trustpilot from '@/public/trustpilot-light.svg';
 import SecureSSL from '@/public/secure-ssl-light.svg';
-import Link from 'next/link';
 
 export default function Header() {
   return (

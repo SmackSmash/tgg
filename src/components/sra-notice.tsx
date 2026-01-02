@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import SRALogo from '@/public/sra-logo.svg';
 import Link from 'next/link';
+import SRALogo from '@/public/sra-logo.svg';
 
 export default function SRANotice() {
   return (

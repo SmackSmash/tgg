@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import { type Option } from '../types';
+import { type Option } from '@/src/types';
 import DropdownOpen from '@/public/dropdown-open.svg';
 import DropdownClose from '@/public/dropdown-close.svg';
 

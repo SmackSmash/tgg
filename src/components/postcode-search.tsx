@@ -1,10 +1,10 @@
 'use client';
 
 import { useState, type ChangeEvent, type FormEvent } from 'react';
-import { useAppDispatch, useAppSelector } from '../store/hooks';
-import { addPostcode, addAddress } from '../store';
+import { useAppDispatch, useAppSelector } from '@/src/store/hooks';
+import { addPostcode, addAddress } from '@/src/store';
 import TextInput from './text-input';
-import { getAddress } from '../api';
+import { getAddress } from '@/src/api';
 
 export default function PostcodeSearch() {
   const postcode = useAppSelector(({ form: { postcode } }) => postcode);

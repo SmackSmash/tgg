@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
-import Providers from '../components/providers';
-import Header from '../components/header';
-import Footer from '../components/footer';
-import './globals.css';
+import Providers from '@/src/components/providers';
+import Header from '@/src/components/header';
+import Footer from '@/src/components/footer';
+import '@/src/app/globals.css';
 
 import Image from 'next/image';
 import Overlay from '@/public/overlays/q1-address.png';

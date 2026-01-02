@@ -1,9 +1,9 @@
 import { type ChangeEvent } from 'react';
 import Image from 'next/image';
-import { useAppDispatch, useAppSelector } from '../store/hooks';
-import { addAddress } from '../store';
-import TextInput from './text-input';
-import CTALink from './cta-link';
+import { useAppDispatch, useAppSelector } from '@/src/store/hooks';
+import { addAddress } from '@/src/store';
+import TextInput from '@/src/components/text-input';
+import CTALink from '@/src/components/cta-link';
 import ChevronRight from '@/public/chevron-right.svg';
 
 export default function AddressForm() {

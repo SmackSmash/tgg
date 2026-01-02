@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import type { Address } from '../../types';
+import type { Address } from '@/src/types';
 
 type FormState = {
   postcode: string;
