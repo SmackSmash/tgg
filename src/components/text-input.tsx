@@ -10,7 +10,7 @@ export default function TextInput({ value, secure, ...rest }: TextInputProps) {
       type='text'
       value={value}
       {...rest}
-      className={`bg-input-grey min-w-0 grow rounded-xs px-1.75 py-3.25 outline-0 ${secure && 'bg-[url("../../public/secure-ssl-dark.svg")] bg-size-[55px] bg-position-[95%_center] bg-no-repeat'}`}
+      className={`bg-input-grey min-w-0 grow rounded-xs px-1.75 py-3.25 outline-0 ${secure && 'bg-[url("../../public/secure-ssl-dark.svg")] bg-size-[51px] bg-position-[97%_55%] bg-no-repeat'}`}
     />
   );
 }
