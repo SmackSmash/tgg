@@ -92,7 +92,9 @@ export default function DetailsForm() {
       </div>
       <CTALink
         href='/contact-information'
-        disabled={!title || !firstname || !surname || !day || !month || !year}
+        disabled={
+          !title || !firstname || !surname || !day || !month || !year || year.toString().length < 4
+        }
       >
         Next
         <Image src={ChevronRight} alt='Right Arrow Icon' />
