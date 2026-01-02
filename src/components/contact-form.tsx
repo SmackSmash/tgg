@@ -2,7 +2,9 @@
 
 import { type ChangeEvent } from 'react';
 import Image from 'next/image';
+import { z } from 'zod';
 import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useAppDispatch, useAppSelector } from '@/src/store/hooks';
 import { addContact } from '@/src/store';
 import CTALink from '@/src/components/cta-link';
@@ -10,13 +12,27 @@ import TextInput from '@/src/components/text-input';
 import FormError from '@/src/components/form-error';
 import SearchIcon from '@/public/search.svg';
 
+const contactSchema = z.object({
+  email: z.email('Invalid email address').min(1, 'Email is required'),
+
+  phone: z
+    .string()
+    .min(1, 'Phone number is required')
+    .regex(
+      /^(((\+44\s?\d{4}|\(?0\d{4}\)?)\s?\d{3}\s?\d{3})|((\+44\s?\d{3}|\(?0\d{3}\)?)\s?\d{3}\s?\d{4})|((\+44\s?\d{2}|\(?0\d{2}\)?)\s?\d{4}\s?\d{4}))(\s?\#(\d{4}|\d{3}))?$/,
+      'Invalid phone number'
+    )
+});
+
+type ContactFormData = z.infer<typeof contactSchema>;
+
 export default function ContactForm() {
   const contact = useAppSelector(({ form: { contact } }) => contact);
   const dispatch = useAppDispatch();
   const {
     register,
     formState: { isValid, errors }
-  } = useForm({ mode: 'onTouched' });
+  } = useForm<ContactFormData>({ mode: 'onTouched', resolver: zodResolver(contactSchema) });
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     dispatch(addContact({ ...contact, [e.target.name]: e.target.value }));
