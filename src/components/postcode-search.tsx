@@ -1,10 +1,11 @@
 'use client';
 
-import { useState, type ChangeEvent, type FormEvent } from 'react';
-import { type FieldValues, useForm } from 'react-hook-form';
+import { useState, type ChangeEvent } from 'react';
+import { useForm } from 'react-hook-form';
 import { useAppDispatch, useAppSelector } from '@/src/store/hooks';
 import { addPostcode, addAddress } from '@/src/store';
-import TextInput from './text-input';
+import TextInput from '@/src/components/text-input';
+import FormError from '@/src/components/form-error';
 import { getAddress } from '@/src/api';
 
 export default function PostcodeSearch() {
@@ -14,7 +15,7 @@ export default function PostcodeSearch() {
     register,
     handleSubmit,
     formState: { isValid, errors }
-  } = useForm();
+  } = useForm({ mode: 'onChange' });
   const [isPending, setIsPending] = useState(false);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -38,7 +39,8 @@ export default function PostcodeSearch() {
           {...register('postcode', {
             onChange: handleChange,
             required: 'Please enter a valid postcode',
-            minLength: { value: 5, message: 'Postcode must be at least 5 characters' }
+            minLength: { value: 5, message: 'Postcode must be at least 5 characters' },
+            maxLength: { value: 8, message: 'Postcode must be less than 9 characters' }
           })}
         />
         <button
@@ -48,7 +50,7 @@ export default function PostcodeSearch() {
           Search
         </button>
       </div>
-      {errors.postcode?.message && <p>{errors.postcode.message}</p>}
+      {errors.postcode?.message && <FormError>{errors.postcode.message as string}</FormError>}
     </form>
   );
 }
