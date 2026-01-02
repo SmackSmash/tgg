@@ -14,6 +14,10 @@ type FormState = {
       year: number | null;
     };
   };
+  contact: {
+    phone: string | null;
+    email: string | null;
+  };
 };
 
 const initialState: FormState = {
@@ -28,6 +32,10 @@ const initialState: FormState = {
       month: null,
       year: null
     }
+  },
+  contact: {
+    phone: null,
+    email: null
   }
 };
 
@@ -43,9 +51,12 @@ const formSlice = createSlice({
     },
     addDetails: (state, { payload }) => {
       return { ...state, details: payload };
+    },
+    addContact: (state, { payload }) => {
+      return { ...state, contact: payload };
     }
   }
 });
 
-export const { addPostcode, addAddress, addDetails } = formSlice.actions;
+export const { addPostcode, addAddress, addDetails, addContact } = formSlice.actions;
 export default formSlice.reducer;
