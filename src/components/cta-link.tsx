@@ -24,7 +24,11 @@ export default function CTALink({
 
   if (green) buttonClasses = twMerge(buttonClasses, 'bg-cta-green ring-cta-green/30 hover:ring-6');
 
-  if (disabled) buttonClasses = twMerge(buttonClasses, 'bg-cta-disabled ring-0 hover:ring-0');
+  if (disabled)
+    buttonClasses = twMerge(
+      buttonClasses,
+      'bg-cta-disabled ring-0 hover:ring-0 cursor-not-allowed'
+    );
 
   if (disabled) {
     return (

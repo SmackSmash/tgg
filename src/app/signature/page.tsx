@@ -3,7 +3,8 @@
 import { useState, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useAppSelector } from '@/src/store/hooks';
+import { useAppSelector, useAppDispatch } from '@/src/store/hooks';
+import { addSignature } from '@/src/store';
 import SignatureCanvas from 'react-signature-canvas';
 import TopBanner from '@/src/components/top-banner';
 import Trust from '@/src/components/trust';
@@ -13,6 +14,7 @@ import Check from '@/public/check-white.svg';
 
 export default function PersonalDetails() {
   const { firstname } = useAppSelector(({ form: { details } }) => details);
+  const dispatch = useAppDispatch();
   const signatureRef = useRef<SignatureCanvas | null>(null);
   const [hasSignature, setHasSignature] = useState(false);
 
@@ -25,7 +27,7 @@ export default function PersonalDetails() {
     if (signatureRef.current) {
       setHasSignature(!signatureRef.current.isEmpty());
       const dataUrl = signatureRef.current.toDataURL('image/png');
-      console.log(dataUrl);
+      dispatch(addSignature(dataUrl));
     }
   };
 
@@ -70,7 +72,7 @@ export default function PersonalDetails() {
         receive a new damages-based agreement for me to review and that my signature above will be
         applied to each document.
       </p>
-      <CTALink disabled={!hasSignature} green>
+      <CTALink href='/thank-you' disabled={!hasSignature} green>
         <Image src={Check} alt='Check Icon' />
         Submit Claim & Reveal
       </CTALink>

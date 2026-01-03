@@ -52,12 +52,14 @@ export default function DetailsForm() {
 
   return (
     <form className='flex flex-col gap-5 pt-4'>
-      <Dropdown
-        placeholder='Title'
-        options={titleOptions}
-        value={{ label: title, value: title }}
-        onChange={handleSelect}
-      />
+      <div className='w-fit'>
+        <Dropdown
+          placeholder='Title'
+          options={titleOptions}
+          value={{ label: title, value: title }}
+          onChange={handleSelect}
+        />
+      </div>
       <TextInput
         placeholder='First Name'
         value={firstname}

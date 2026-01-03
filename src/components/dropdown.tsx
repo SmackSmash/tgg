@@ -50,7 +50,7 @@ export default function Dropdown({ options, value, onChange, placeholder }: Drop
   };
 
   return (
-    <div ref={dropdownRef} className='relative flex w-fit flex-col'>
+    <div ref={dropdownRef} className='relative flex w-full flex-col'>
       <div
         onClick={() => setIsOpen(!isOpen)}
         ref={selectRef}

@@ -18,6 +18,7 @@ type FormState = {
     phone: string | null;
     email: string | null;
   };
+  signature: string | null;
 };
 
 const initialState: FormState = {
@@ -36,7 +37,8 @@ const initialState: FormState = {
   contact: {
     phone: null,
     email: null
-  }
+  },
+  signature: null
 };
 
 const formSlice = createSlice({
@@ -54,9 +56,12 @@ const formSlice = createSlice({
     },
     addContact: (state, { payload }) => {
       return { ...state, contact: payload };
+    },
+    addSignature: (state, { payload }) => {
+      return { ...state, signature: payload };
     }
   }
 });
 
-export const { addPostcode, addAddress, addDetails, addContact } = formSlice.actions;
+export const { addPostcode, addAddress, addDetails, addContact, addSignature } = formSlice.actions;
 export default formSlice.reducer;
