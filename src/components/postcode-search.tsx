@@ -36,6 +36,7 @@ export default function PostcodeSearch() {
         <TextInput
           placeholder='Postcode'
           value={postcode}
+          isValid={!errors.postcode?.type}
           maxLength={8}
           {...register('postcode', {
             onChange: handleChange,

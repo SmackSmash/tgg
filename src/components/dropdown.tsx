@@ -7,13 +7,22 @@ import DropdownOpen from '@/public/dropdown-open.svg';
 import DropdownClose from '@/public/dropdown-close.svg';
 
 type DropdownProps = {
+  placeholder: string;
   options: Option[];
   value: Option | null;
+  isValid?: boolean;
   onChange: (option: Option) => void;
-  placeholder: string;
+  onBlur?: () => void;
 };
 
-export default function Dropdown({ options, value, onChange, placeholder }: DropdownProps) {
+export default function Dropdown({
+  placeholder,
+  options,
+  value,
+  isValid = true,
+  onChange,
+  onBlur
+}: DropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectHeight, setSelectHeight] = useState(0);
 
@@ -21,17 +30,13 @@ export default function Dropdown({ options, value, onChange, placeholder }: Drop
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!selectRef.current) {
-      return;
-    }
+    if (!selectRef.current) return;
 
     setSelectHeight(selectRef!.current!.clientHeight);
   }, []);
 
   useEffect(() => {
-    if (!dropdownRef.current) {
-      return;
-    }
+    if (!dropdownRef.current) return;
 
     const handler = (e: MouseEvent) => {
       if (!dropdownRef.current?.contains(e.target as Node)) {
@@ -50,11 +55,11 @@ export default function Dropdown({ options, value, onChange, placeholder }: Drop
   };
 
   return (
-    <div ref={dropdownRef} className='relative flex w-full flex-col'>
+    <div ref={dropdownRef} tabIndex={0} onBlur={onBlur} className='relative flex w-full flex-col'>
       <div
         onClick={() => setIsOpen(!isOpen)}
         ref={selectRef}
-        className={`border-text-color/80 flex cursor-pointer items-center gap-7 border px-2 py-3 ${isOpen ? 'rounded-t-xs' : 'rounded-xs'} ${value ? 'text-text-color' : 'text-greyed-text'}`}
+        className={`flex cursor-pointer items-center gap-7 border px-2 py-3 ${isOpen ? 'rounded-t-xs' : 'rounded-xs'} ${value ? 'text-text-color' : 'text-greyed-text'} ${!isValid ? 'border-cta-red' : 'border-text-color/80'}`}
       >
         {value?.label ? value.label : placeholder}
         <Image

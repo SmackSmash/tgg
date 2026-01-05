@@ -20,11 +20,14 @@ export default function AddressForm() {
     dispatch(addAddress({ ...address, [e.target.name]: e.target.value }));
   };
 
+  console.log(errors);
+
   return (
     <form className='flex flex-col gap-5 py-4'>
       <TextInput
         placeholder='Address Line 1'
         value={address!.line1}
+        isValid={!errors.line1}
         {...register('line1', {
           onChange: handleChange,
           required: 'Please enter a valid address'
@@ -41,15 +44,17 @@ export default function AddressForm() {
       <TextInput
         placeholder='Town/City'
         value={address!.town}
+        isValid={!errors.town}
         {...register('town', {
           onChange: handleChange,
-          required: 'Please enter a valid town'
+          required: 'Please enter a valid town/city'
         })}
       />
       {errors.town?.message && <FormError>{errors.town.message as string}</FormError>}
       <TextInput
         placeholder='County'
         value={address!.county}
+        isValid={!errors.county}
         {...register('county', {
           onChange: handleChange,
           required: 'Please enter a valid county'
