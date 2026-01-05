@@ -2,12 +2,12 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { Address } from '@/src/types';
 
 type FormState = {
-  postcode: string;
+  postcode: string | null;
   address: Address | null;
   details: {
-    title: string;
-    firstname: string;
-    surname: string;
+    title: string | null;
+    firstname: string | null;
+    surname: string | null;
     dob: {
       day: number | null;
       month: number | null;
@@ -22,12 +22,12 @@ type FormState = {
 };
 
 const initialState: FormState = {
-  postcode: '',
+  postcode: null,
   address: null,
   details: {
-    title: '',
-    firstname: '',
-    surname: '',
+    title: null,
+    firstname: null,
+    surname: null,
     dob: {
       day: null,
       month: null,

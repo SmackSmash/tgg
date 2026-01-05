@@ -44,7 +44,6 @@ export default function ContactForm() {
       <p className='pb-1'>For example: 07123456789</p>
       <TextInput
         placeholder='Enter Mobile Number'
-        value={contact.phone || ''}
         secure
         {...register('phone', {
           onChange: handleChange,
@@ -57,7 +56,6 @@ export default function ContactForm() {
       <div className='flex w-full flex-col pb-4'>
         <TextInput
           placeholder='Enter Email Address'
-          value={contact.email || ''}
           secure
           email
           {...register('email', {

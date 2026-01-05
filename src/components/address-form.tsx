@@ -14,19 +14,24 @@ export default function AddressForm() {
   const {
     register,
     formState: { isValid, errors }
-  } = useForm({ mode: 'onTouched' });
+  } = useForm({
+    mode: 'onTouched',
+    defaultValues: {
+      line1: address?.line1 || null,
+      line2: address?.line2 || null,
+      town: address?.town || null,
+      county: address?.county || null
+    }
+  });
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     dispatch(addAddress({ ...address, [e.target.name]: e.target.value }));
   };
 
-  console.log(errors);
-
   return (
     <form className='flex flex-col gap-5 py-4'>
       <TextInput
         placeholder='Address Line 1'
-        value={address!.line1}
         isValid={!errors.line1}
         {...register('line1', {
           onChange: handleChange,
@@ -36,14 +41,12 @@ export default function AddressForm() {
       {errors.line1?.message && <FormError>{errors.line1.message as string}</FormError>}
       <TextInput
         placeholder='Address Line 2'
-        value={address?.line2 || ''}
         {...register('line2', {
           onChange: handleChange
         })}
       />
       <TextInput
         placeholder='Town/City'
-        value={address!.town}
         isValid={!errors.town}
         {...register('town', {
           onChange: handleChange,
@@ -53,7 +56,6 @@ export default function AddressForm() {
       {errors.town?.message && <FormError>{errors.town.message as string}</FormError>}
       <TextInput
         placeholder='County'
-        value={address!.county}
         isValid={!errors.county}
         {...register('county', {
           onChange: handleChange,

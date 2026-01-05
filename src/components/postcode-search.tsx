@@ -24,7 +24,7 @@ export default function PostcodeSearch() {
 
   const onSubmit = async () => {
     setIsPending(true);
-    const returnedAddress = await getAddress(postcode);
+    const returnedAddress = await getAddress(postcode!);
     setIsPending(false);
     dispatch(addAddress(returnedAddress));
   };
@@ -35,7 +35,6 @@ export default function PostcodeSearch() {
       <div className='flex items-center gap-4'>
         <TextInput
           placeholder='Postcode'
-          value={postcode}
           isValid={!errors.postcode?.type}
           maxLength={8}
           {...register('postcode', {
