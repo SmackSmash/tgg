@@ -44,8 +44,6 @@ export default function DetailsForm() {
     dispatch(addDetails({ ...details, [e.target.name]: e.target.value }));
   };
 
-  console.log(touchedFields);
-
   return (
     <form className='flex flex-col gap-5 pt-4'>
       <div className='w-fit'>
