@@ -26,7 +26,7 @@ export default function DetailsForm() {
   const {
     control,
     register,
-    formState: { isValid, errors, touchedFields }
+    formState: { isValid, errors }
   } = useForm({
     mode: 'onTouched'
   });

@@ -1,13 +1,16 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useAppSelector } from '@/src/store/hooks';
 import { type Option } from '@/src/types';
 import TopBanner from '@/src/components/top-banner';
 import Dropdown from '@/src/components/dropdown';
 import RegistrationChecker from '@/src/components/registration-checker';
+import StarRating from '@/src/components/star-rating';
 import Party from '@/public/party.svg';
 import CourmacsLogo from '@/public/courmacs-logo.svg';
+import WhatsAppLogo from '@/public/whatsapp-logo.svg';
 
 const agreementOptions = [
   { label: 'Agreement 1', value: 'Agreement 1' },
@@ -62,6 +65,20 @@ export default function ThankYou() {
         <video controls preload='none' className='aspect-video'>
           <source src='sample.mp4' type='video/mp4' />{' '}
         </video>
+        <h2 className='text-2xl font-semibold'>Help Your Close Ones Claim!</h2>
+        <p>Your friends and family may have financed a vehicle before 2021.</p>
+        <Link
+          href='whatsapp://send?text=PCP Pal'
+          className='bg-whatsapp-green font-actor flex justify-center gap-2 rounded-lg py-3 text-2xl text-white'
+        >
+          <Image src={WhatsAppLogo} alt='WhatsApp Logo' />
+          Share on WhatsApp
+        </Link>
+      </section>
+      <section className='border-border-grey border-y py-10'>
+        <h2 className='text-2xl font-semibold'>How quick and easy was our website?</h2>
+        <p>Leave us a review to help others find out how much they could potentially be owed.</p>
+        <StarRating />
       </section>
     </main>
   );
