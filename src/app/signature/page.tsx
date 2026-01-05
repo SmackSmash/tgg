@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useAppSelector, useAppDispatch } from '@/src/store/hooks';
@@ -13,10 +14,25 @@ import Eraser from '@/public/eraser.svg';
 import Check from '@/public/check-white.svg';
 
 export default function PersonalDetails() {
-  const { firstname } = useAppSelector(({ form: { details } }) => details);
+  const { postcode, firstname } = useAppSelector(
+    ({
+      form: {
+        postcode,
+        details: { firstname }
+      }
+    }) => ({
+      postcode,
+      firstname
+    })
+  );
   const dispatch = useAppDispatch();
+  const router = useRouter();
   const signatureRef = useRef<SignatureCanvas | null>(null);
   const [hasSignature, setHasSignature] = useState(false);
+
+  useEffect(() => {
+    if (!postcode) router.push('/address');
+  }, [postcode, router]);
 
   const handleClear = () => {
     signatureRef.current?.clear();

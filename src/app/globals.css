@@ -8,8 +8,13 @@
   font-family: CharlesWright;
   src: url('@/public/fonts/charleswright-bold.otf');
 }
+@font-face {
+  font-family: Actor;
+  src: url('@/public/fonts/actor-regular.ttf');
+}
 @theme {
   --font-charleswright: 'CharlesWright', sans-serif;
+  --font-actor: 'Actor', sans-serif;
   --color-text-color: rgba(22, 24, 35, 1);
   --color-border-grey: rgba(0, 0, 0, 0.15);
   --color-cta-red: rgba(255, 0, 79, 1);

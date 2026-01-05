@@ -1,3 +1,8 @@
+'use client';
+
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { useAppSelector } from '@/src/store/hooks';
 import Image from 'next/image';
 import TopBanner from '@/src/components/top-banner';
 import ContactForm from '@/src/components/contact-form';
@@ -5,6 +10,13 @@ import Trust from '@/src/components/trust';
 import Envelope from '@/public/envelope.svg';
 
 export default function ContactInformation() {
+  const { postcode } = useAppSelector(({ form: postcode }) => postcode);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!postcode) router.push('/address');
+  }, [postcode, router]);
+
   return (
     <main className='px-4 py-2'>
       <TopBanner>32.62 million drivers at risk of losing out on compensation</TopBanner>

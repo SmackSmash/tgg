@@ -59,12 +59,9 @@ export default function ThankYou() {
         <p className='text-xs'>
           Watch this short video, on what the next steps of your journey with Courmacs Legal are.
         </p>
-        <iframe
-          src='https://www.youtube.com/embed/JLnycPtolfw?si=GJ2twtWssdP684FN'
-          title='YouTube video player'
-          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-          className='h-auto w-full'
-        ></iframe>
+        <video controls preload='none' className='aspect-video'>
+          <source src='sample.mp4' type='video/mp4' />{' '}
+        </video>
       </section>
     </main>
   );
