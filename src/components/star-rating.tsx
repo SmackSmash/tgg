@@ -1,17 +1,7 @@
 import { useState } from 'react';
-import Image from 'next/image';
-import StarUnselected from '@/public/star-unselected.svg';
-import StarActive from '@/public/star-active.svg';
-import StarSelected from '@/public/star-selected.svg';
 
 export default function StarRating() {
-  const [stars, setStars] = useState([
-    'unselected',
-    'unselected',
-    'unselected',
-    'unselected',
-    'unselected'
-  ]);
+  const [stars, setStars] = useState(Array(5).fill('unselected'));
 
   const handleClick = (index: number) => {
     setStars(stars.map((_star, i) => (i <= index ? 'selected' : 'unselected')));
@@ -22,8 +12,30 @@ export default function StarRating() {
       <h3 className='text-2xl'>Select a star to leave a review</h3>
       <div className='flex items-center'>
         {stars.map((star, i) => (
-          <button key={i} className='cursor-pointer' onClick={() => handleClick(i)}>
-            <Image src={star === 'unselected' ? StarUnselected : StarSelected} alt='star' />
+          <button key={i} onClick={() => handleClick(i)} className='cursor-pointer'>
+            {star === 'unselected' ? (
+              <svg
+                width='46'
+                height='46'
+                viewBox='0 0 46 46'
+                fill='#F2F2F2'
+                xmlns='http://www.w3.org/2000/svg'
+                className='active:stroke-star-yellow/50 active:fill-star-yellow active:stroke-2'
+              >
+                <path d='M23 0L28.1638 15.8926H44.8743L31.3552 25.7148L36.5191 41.6074L23 31.7852L9.48094 41.6074L14.6448 25.7148L1.1257 15.8926H17.8362L23 0Z' />
+              </svg>
+            ) : (
+              <svg
+                width='46'
+                height='46'
+                viewBox='0 0 46 46'
+                fill='#FDD515'
+                xmlns='http://www.w3.org/2000/svg'
+                className='active:stroke-star-yellow/50 active:stroke-2'
+              >
+                <path d='M23 0L28.1638 15.8926H44.8743L31.3552 25.7148L36.5191 41.6074L23 31.7852L9.48094 41.6074L14.6448 25.7148L1.1257 15.8926H17.8362L23 0Z' />
+              </svg>
+            )}
           </button>
         ))}
       </div>
