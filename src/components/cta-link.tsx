@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import { twMerge } from 'tailwind-merge';
 
-type CTAButtonProps = {
+type CTALink = {
   children: React.ReactNode;
   href?: string;
+  button?: boolean;
   disabled?: boolean;
   ring?: boolean;
   green?: boolean;
@@ -12,11 +13,12 @@ type CTAButtonProps = {
 export default function CTALink({
   children,
   href,
+  button,
   disabled,
   ring,
   green,
   ...rest
-}: CTAButtonProps) {
+}: CTALink) {
   let buttonClasses =
     'bg-cta-red flex w-full cursor-pointer items-center justify-center gap-4 rounded-lg p-2.75 text-lg font-medium text-white ring-4 transition-shadow';
 
@@ -37,6 +39,13 @@ export default function CTALink({
       </div>
     );
   }
+
+  if (button) {
+    <button className={buttonClasses} {...rest}>
+      {children}
+    </button>;
+  }
+
   return (
     <Link href={href || '_blank'} className={buttonClasses} {...rest}>
       {children}
