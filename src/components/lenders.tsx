@@ -28,7 +28,7 @@ export default function Lenders() {
   const [faqOpen, setFaqOpen] = useState(false);
 
   return (
-    <section className='flex flex-col gap-4 bg-black px-2.5 py-5'>
+    <section className='mb-1.5 flex flex-col gap-4 bg-black px-2.5 py-5'>
       <p className='mx-1.5 text-white'>
         We will locate all of your vehicle finance agreements with all these 73 lenders.
       </p>

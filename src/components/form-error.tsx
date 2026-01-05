@@ -5,5 +5,5 @@ type FormErrorProps = {
 };
 
 export default function FormError({ children }: FormErrorProps) {
-  return <span className='text-cta-red'>{children}</span>;
+  return <span className='text-cta-red pt-1 text-[11px]'>{children}</span>;
 }

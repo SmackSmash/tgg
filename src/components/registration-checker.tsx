@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import CTALink from './cta-link';
 import GBLogo from '@/public/gb-logo.svg';
 import ChevronRight from '@/public/chevron-right.svg';
+import FormError from './form-error';
 
 export default function RegistrationChecker() {
   const {
@@ -19,6 +20,7 @@ export default function RegistrationChecker() {
         <div className='bg-reg-yellow relative w-full overflow-hidden rounded-lg border-2 pt-4 pb-3'>
           <input
             type='text'
+            placeholder='ENTER REG'
             maxLength={8}
             {...register('reg', {
               required: 'Please enter a valid reg',
@@ -31,6 +33,7 @@ export default function RegistrationChecker() {
           </div>
         </div>
       </div>
+      {errors.reg?.message && <FormError>errors.reg?.message</FormError>}
       <CTALink button disabled={!isValid}>
         Search
         <Image src={ChevronRight} alt='Right Arrow Icon' />

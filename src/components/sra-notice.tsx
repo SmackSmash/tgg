@@ -4,7 +4,7 @@ import SRALogo from '@/public/sra-logo.svg';
 
 export default function SRANotice() {
   return (
-    <section className='py-5 pr-3 pl-5 text-[11px] font-light'>
+    <section className='pt-3 pr-3 pb-5 pl-5 text-[11px] font-light'>
       <Image src={SRALogo} alt='SRA Logo' className='pb-5' />
       <p className='pb-5 leading-5'>
         PCP Pal is a trading style of Courmacs Legal Limited. Registered in England and Wales,
@@ -23,7 +23,7 @@ export default function SRANotice() {
         <br />
         *Based on industry research; industry results may vary.
       </p>
-      <h4 className='font-semibold'>Privacy and Compaints</h4>
+      <h4 className='font-bold'>Privacy and Compaints</h4>
       <p className='pb-5 leading-5'>
         By submitting a claim, you consent to Courmacs Legal Limited processing your data in
         accordance with our <Link href='_blank'>Privacy Policy</Link>. For concerns, please review

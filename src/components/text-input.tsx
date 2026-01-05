@@ -10,7 +10,7 @@ export default function TextInput({ secure, isValid = true, email, ...rest }: Te
     <input
       type={email ? 'email' : 'text'}
       {...rest}
-      className={`bg-input-grey min-w-0 grow rounded-xs px-1.75 py-3.25 outline-0 ${secure && 'bg-[url("../../public/secure-ssl-dark.svg")] bg-size-[51px] bg-position-[97%_55%] bg-no-repeat pr-17'} ${!isValid && 'inset-ring-cta-red inset-ring'}`}
+      className={`bg-input-grey min-w-0 grow rounded-xs px-3 py-3.25 outline-0 ${secure && 'bg-[url("../../public/secure-ssl-dark.svg")] bg-size-[51px] bg-position-[97%_55%] bg-no-repeat pr-17'} ${!isValid && 'inset-ring-cta-red inset-ring'}`}
     />
   );
 }

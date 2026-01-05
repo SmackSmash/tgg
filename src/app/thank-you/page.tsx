@@ -8,9 +8,11 @@ import TopBanner from '@/src/components/top-banner';
 import Dropdown from '@/src/components/dropdown';
 import RegistrationChecker from '@/src/components/registration-checker';
 import StarRating from '@/src/components/star-rating';
+import IDUpload from '@/src/components/id-upload-form';
 import Party from '@/public/party.svg';
 import CourmacsLogo from '@/public/courmacs-logo.svg';
 import WhatsAppLogo from '@/public/whatsapp-logo.svg';
+import IDIcon from '@/public/id.svg';
 
 const agreementOptions = [
   { label: 'Agreement 1', value: 'Agreement 1' },
@@ -75,10 +77,41 @@ export default function ThankYou() {
           Share on WhatsApp
         </Link>
       </section>
-      <section className='border-border-grey border-y py-10'>
+      <section className='border-border-grey border-b py-10'>
         <h2 className='text-2xl font-semibold'>How quick and easy was our website?</h2>
         <p>Leave us a review to help others find out how much they could potentially be owed.</p>
         <StarRating />
+      </section>
+      <section className='border-border-grey flex flex-col border-b py-4'>
+        <div className='flex items-start gap-6'>
+          <div>
+            <h2 className='text-2xl font-semibold'>Speed Things Up!</h2>
+            <p className='text-text-color/80 py-1 text-sm'>
+              Speed up your claim by uploading your driving licence (or passport).
+            </p>
+          </div>
+          <Image src={IDIcon} alt='ID Icon' />
+        </div>
+        <IDUpload />
+        <ul className='flex list-image-[url(@/public/check.svg)] flex-col gap-5 px-5 pt-3 pb-4.5'>
+          <li className='pl-3'>95% chance their car finance included lender commission.</li>
+          <li className='pl-3'>The average claim value is £5,318.25 per vehicle.</li>
+        </ul>
+        <h2 className='text-2xl font-semibold'>Legal Obligations</h2>
+        <ul className='flex list-disc flex-col gap-3.75 pl-4'>
+          <li className='text-text-color/80 text-xs leading-5.5'>
+            By submitting your details, you have entered a legal claims process. It is important to
+            review the confirmation email for more information about what to expect and the next
+            steps in this process.
+          </li>
+          <li className='text-text-color/80 text-xs leading-5.5'>
+            Your Claim Value
+            <br />
+            The average claim value is £5,318.25, with some clients receiving up to £10,446.46.
+            However, please note that claim amounts depend on individual circumstances. The values
+            mentioned are based on successful past claims.
+          </li>
+        </ul>
       </section>
     </main>
   );

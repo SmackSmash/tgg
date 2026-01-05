@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from '@/src/store/hooks';
 import { addPostcode, addAddress } from '@/src/store';
 import TextInput from '@/src/components/text-input';
 import FormError from '@/src/components/form-error';
+import LoadingSpinner from './loading-spinner';
 import { getAddress } from '@/src/api';
 
 export default function PostcodeSearch() {
@@ -30,8 +31,7 @@ export default function PostcodeSearch() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className='py-1'>
-      <p className='pb-2'>Enter your postcode and tap &lsquo;Search&rsquo;.</p>
+    <form onSubmit={handleSubmit(onSubmit)} className='pb-1'>
       <div className='flex items-center gap-4'>
         <TextInput
           placeholder='Postcode'
@@ -46,9 +46,9 @@ export default function PostcodeSearch() {
         />
         <button
           disabled={!isValid || isPending}
-          className='bg-cta-red disabled:bg-cta-disabled flex cursor-pointer rounded-full px-10.25 py-1.75 text-[15px] font-semibold text-white'
+          className='bg-cta-red disabled:bg-cta-disabled flex w-42 cursor-pointer justify-center rounded-full py-1.75 text-[15px] font-semibold text-white'
         >
-          Search
+          {isPending ? <LoadingSpinner /> : 'Search'}
         </button>
       </div>
       {errors.postcode?.message && <FormError>{errors.postcode.message as string}</FormError>}

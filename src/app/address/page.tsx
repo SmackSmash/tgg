@@ -25,8 +25,11 @@ export default function Address() {
           <Image src={House} alt='House Icon' />
         </div>
       </section>
-      <PostcodeSearch />
-      {address && <AddressForm />}
+      <section className='pt-0.5 pb-6.5'>
+        <p className='pb-2.5'>Enter your postcode and tap &lsquo;Search&rsquo;.</p>
+        <PostcodeSearch />
+        {address && <AddressForm />}
+      </section>
       <Trust />
     </main>
   );

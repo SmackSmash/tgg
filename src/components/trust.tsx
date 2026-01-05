@@ -4,7 +4,7 @@ import SecureSSL from '@/public/secure-ssl-dark.svg';
 
 export default function Trust() {
   return (
-    <section className='border-border-grey flex flex-col items-center border-b pt-7.5 pb-2.5'>
+    <section className='border-border-grey flex flex-col items-center border-b pb-2.5'>
       <div className='flex items-end gap-6'>
         <Image src={Trustpilot} alt='Trustpilot Score' />
         <Image src={SecureSSL} alt='Secure SSL Logo' />

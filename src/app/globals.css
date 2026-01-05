@@ -29,6 +29,20 @@
   --color-reg-blue: rgba(0, 54, 160, 1);
   --color-whatsapp-green: rgba(29, 208, 109, 1);
   --color-star-yellow: rgba(253, 213, 21, 1);
+  --color-upload-bg-blue: rgba(205, 248, 246, 1);
+  --color-upload-border-blue: rgba(0, 242, 234, 1);
+  --color-upload-text-blue: rgba(1, 146, 141, 1);
+}
+@layer base {
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type='number'] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
 }
 body {
   font-family: 'TikTok', Arial, Helvetica, sans-serif;
