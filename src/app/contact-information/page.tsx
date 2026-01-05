@@ -34,7 +34,7 @@ export default function ContactInformation() {
       </section>
       <ContactForm />
       <Trust />
-      <p className='text-text-color/80 pt-5 pl-2.25 text-[11px] leading-5 font-light'>
+      <p className='text-text-color/80 font-regular px-2.25 pt-5 text-[11px] leading-5'>
         By clicking &apos;Find My Agreements&apos;, you agree to the Courmacs Legal Privacy Policy,
         consent to receiving marketing communications, and acknowledge that we will run a soft
         credit check (powered by Valid8 IP Ltd) to identify any potential car finance claims. These

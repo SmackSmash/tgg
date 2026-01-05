@@ -46,7 +46,7 @@ export default function PostcodeSearch() {
         />
         <button
           disabled={!isValid || isPending}
-          className='bg-cta-red disabled:bg-cta-disabled flex w-42 cursor-pointer justify-center rounded-full py-1.75 text-[15px] font-semibold text-white'
+          className='bg-cta-red disabled:bg-cta-disabled flex w-42 cursor-pointer justify-center rounded-full py-1.75 text-[15px] font-semibold text-white outline-0'
         >
           {isPending ? <LoadingSpinner /> : 'Search'}
         </button>

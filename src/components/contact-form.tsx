@@ -39,11 +39,12 @@ export default function ContactForm() {
   };
 
   return (
-    <form className='flex flex-col gap-1 pt-4.5'>
+    <form className='flex flex-col gap-1 pt-4.5 pb-7.5'>
       <h2 className='text-2xl font-semibold'>Your Mobile Number</h2>
       <p className='pb-1'>For example: 07123456789</p>
       <TextInput
         placeholder='Enter Mobile Number'
+        isValid={!errors.phone}
         secure
         {...register('phone', {
           onChange: handleChange,
@@ -56,6 +57,7 @@ export default function ContactForm() {
       <div className='flex w-full flex-col pb-4'>
         <TextInput
           placeholder='Enter Email Address'
+          isValid={!errors.email}
           secure
           email
           {...register('email', {

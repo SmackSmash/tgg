@@ -45,8 +45,8 @@ export default function DetailsForm() {
   };
 
   return (
-    <form className='flex flex-col gap-5 pt-4'>
-      <div className='w-fit'>
+    <form className='flex flex-col pt-4'>
+      <div className='w-fit pb-5'>
         <Controller
           name='title'
           control={control}
@@ -65,69 +65,75 @@ export default function DetailsForm() {
             />
           )}
         />
+        {errors.title?.message && <FormError>{errors.title.message as string}</FormError>}
       </div>
-      {errors.title?.message && <FormError>{errors.title.message as string}</FormError>}
-      <TextInput
-        placeholder='First Name'
-        isValid={!errors.firstname}
-        {...register('firstname', {
-          onChange: handleChange,
-          required: 'Please enter a valid first name'
-        })}
-      />
-      {errors.firstname?.message && <FormError>{errors.firstname.message as string}</FormError>}
-      <TextInput
-        placeholder='Surname'
-        isValid={!errors.surname}
-        {...register('surname', {
-          onChange: handleChange,
-          required: 'Please enter a valid surname'
-        })}
-      />
-      {errors.surname?.message && <FormError>{errors.surname.message as string}</FormError>}
+      <div className='flex flex-col pb-5'>
+        <TextInput
+          placeholder='First Name'
+          isValid={!errors.firstname}
+          {...register('firstname', {
+            onChange: handleChange,
+            required: 'Please enter a valid first name'
+          })}
+        />
+        {errors.firstname?.message && <FormError>{errors.firstname.message as string}</FormError>}
+      </div>
+      <div className='flex flex-col pb-5'>
+        <TextInput
+          placeholder='Surname'
+          isValid={!errors.surname}
+          {...register('surname', {
+            onChange: handleChange,
+            required: 'Please enter a valid surname'
+          })}
+        />
+        {errors.surname?.message && <FormError>{errors.surname.message as string}</FormError>}
+      </div>
       <div>
         <p className='pb-1.5'>Date of Birth</p>
-        <div className='flex gap-5'>
-          <div className='min-w-0'>
-            <NumberInput
-              placeholder='DD'
-              isValid={!errors.day}
-              {...register('day', {
-                onChange: handleChange,
-                required: true,
-                min: 1,
-                max: 31
-              })}
-            />
+        <div className='pb-5'>
+          <div className='flex gap-5'>
+            <div className='min-w-0'>
+              <NumberInput
+                placeholder='DD'
+                isValid={!errors.day}
+                {...register('day', {
+                  onChange: handleChange,
+                  required: true,
+                  min: 1,
+                  max: 31
+                })}
+              />
+            </div>
+            <div className='min-w-0'>
+              <NumberInput
+                placeholder='MM'
+                isValid={!errors.month}
+                {...register('month', {
+                  onChange: handleChange,
+                  required: true,
+                  min: 1,
+                  max: 12
+                })}
+              />
+            </div>
+            <div className='min-w-0'>
+              <NumberInput
+                placeholder='YYYY'
+                isValid={!errors.year}
+                {...register('year', {
+                  onChange: handleChange,
+                  required: true,
+                  min: 1900,
+                  max: 3000
+                })}
+              />
+            </div>
           </div>
-          <div className='min-w-0'>
-            <NumberInput
-              placeholder='MM'
-              isValid={!errors.month}
-              {...register('month', {
-                onChange: handleChange,
-                required: true,
-                min: 1,
-                max: 12
-              })}
-            />
-          </div>
-          <div className='min-w-0'>
-            <NumberInput
-              placeholder='YYYY'
-              isValid={!errors.year}
-              {...register('year', {
-                onChange: handleChange,
-                required: true,
-                min: 1900,
-                max: 3000
-              })}
-            />
-          </div>
+          {(errors.day || errors.month || errors.year) && (
+            <FormError>Please enter a valid date</FormError>
+          )}
         </div>
-        {(errors.day || errors.month || errors.year) && (
-          <FormError>Please enter a valid date</FormError>
-        )}
       </div>
       <CTALink href='/contact-information' disabled={!isValid}>
         Next
