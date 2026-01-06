@@ -24,7 +24,7 @@ export default function RegistrationChecker() {
             maxLength={8}
             {...register('reg', {
               required: 'Please enter a valid reg',
-              minLength: 8
+              minLength: { value: 8, message: 'Registration number must be at least 8 characters' }
             })}
             className='font-charleswright w-full text-center text-4xl uppercase outline-0'
           />
@@ -32,8 +32,8 @@ export default function RegistrationChecker() {
             <Image src={GBLogo} alt='GB Logo' />
           </div>
         </div>
+        {errors.reg?.message && <FormError>{errors.reg?.message as string}</FormError>}
       </div>
-      {errors.reg?.message && <FormError>errors.reg?.message</FormError>}
       <div className='mt-1'>
         <CTALink button disabled={!isValid}>
           Search

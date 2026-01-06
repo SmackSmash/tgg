@@ -40,7 +40,7 @@ export default function ThankYou() {
   };
 
   return (
-    <main className='px-4 py-2'>
+    <main className='px-4 pt-2 pb-0.5'>
       <TopBanner>You&rsquo;ve now joined the 1 Million+ drivers helped so far</TopBanner>
       {isSubmitting ? (
         <h1 className='pt-15 pb-10 text-center text-2xl'>Submitting claim...</h1>
@@ -96,30 +96,30 @@ export default function ThankYou() {
               Share on WhatsApp
             </Link>
           </section>
-          <section className='border-border-grey border-b py-10'>
-            <h2 className='text-2xl font-semibold'>How quick and easy was our website?</h2>
-            <p>
+          <section className='border-border-grey border-b pt-9.5 pb-10'>
+            <h2 className='pb-4 text-2xl font-semibold'>How quick and easy was our website?</h2>
+            <p className='pb-5'>
               Leave us a review to help others find out how much they could potentially be owed.
             </p>
             <StarRating />
           </section>
-          <section className='border-border-grey flex flex-col border-b py-4'>
-            <div className='flex items-start gap-6'>
+          <section className='border-border-grey flex flex-col border-b py-10'>
+            <div className='flex items-start gap-6 pr-1 pb-3'>
               <div>
-                <h2 className='text-2xl font-semibold'>Speed Things Up!</h2>
-                <p className='text-text-color/80 py-1 text-sm'>
+                <h2 className='pb-2 text-2xl font-semibold'>Speed Things Up!</h2>
+                <p className='text-text-color/80 text-sm'>
                   Speed up your claim by uploading your driving licence (or passport).
                 </p>
               </div>
-              <Image src={IDIcon} alt='ID Icon' />
+              <Image src={IDIcon} alt='ID Icon' className='pt-1' />
             </div>
             <IDUpload />
-            <ul className='flex list-image-[url(@/public/check.svg)] flex-col gap-5 px-5 pt-3 pb-4.5'>
+            <ul className='flex list-image-[url(@/public/check.svg)] flex-col gap-7 pt-5 pb-6 pl-6'>
               <li className='pl-3'>95% chance their car finance included lender commission.</li>
               <li className='pl-3'>The average claim value is £5,318.25 per vehicle.</li>
             </ul>
-            <h2 className='text-2xl font-semibold'>Legal Obligations</h2>
-            <ul className='flex list-disc flex-col gap-3.75 pl-4'>
+            <h2 className='pb-3.75 pl-1 text-2xl font-semibold'>Legal Obligations</h2>
+            <ul className='flex list-disc flex-col gap-5.5 pl-5.5'>
               <li className='text-text-color/80 text-xs leading-5.5'>
                 By submitting your details, you have entered a legal claims process. It is important
                 to review the confirmation email for more information about what to expect and the
@@ -129,8 +129,8 @@ export default function ThankYou() {
                 Your Claim Value
                 <br />
                 The average claim value is £5,318.25, with some clients receiving up to £10,446.46.
-                However, please note that claim amounts depend on individual circumstances. The
-                values mentioned are based on successful past claims.
+                However, please note that claim amounts depend on individual circumstances.
+                <br /> The values mentioned are based on successful past claims.
               </li>
             </ul>
           </section>

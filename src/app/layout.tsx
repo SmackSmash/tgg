@@ -18,9 +18,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en' className='bg-zinc-800'>
+    <html lang='en' className='bg-zinc-300'>
       <body className='relative mx-auto my-2 w-93.75 bg-white antialiased'>
-        {/* <Image src={Overlay} alt='Overlay' className='absolute opacity-50' /> */}
+        {/* <Image src={Overlay} alt='Overlay' className='absolute -top-17.5 opacity-50' /> */}
         <Providers>
           <Header />
           {children}

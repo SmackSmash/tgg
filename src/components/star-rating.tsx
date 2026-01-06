@@ -8,9 +8,9 @@ export default function StarRating() {
   };
 
   return (
-    <div className='border-border-grey flex flex-col items-center gap-4 border p-2'>
-      <h3 className='text-2xl'>Select a star to leave a review</h3>
-      <div className='flex items-center'>
+    <div className='border-border-grey flex flex-col items-center gap-4 border p-3'>
+      <h3 className='text-xl'>Select A Star To Leave A Review</h3>
+      <div className='flex items-center gap-2.5'>
         {stars.map((star, i) => (
           <button key={i} onClick={() => handleClick(i)} className='cursor-pointer'>
             {star === 'unselected' ? (

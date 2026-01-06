@@ -12,7 +12,7 @@ export default function IDUpload() {
 
   return (
     <form>
-      <label className='bg-upload-bg-blue border-upload-border-blue text-upload-text-blue mb-5 flex cursor-pointer justify-center gap-2 rounded-md border-2 py-4 font-bold'>
+      <label className='bg-upload-bg-blue border-upload-border-blue text-upload-text-blue mb-7 flex cursor-pointer justify-center gap-3 rounded-md border-2 py-5 text-[15px] font-bold'>
         <Image src={FileIcon} alt='File Icon' />
         Click to Upload
         <input type='file' className='sr-only' {...register('id', { required: true })} />
