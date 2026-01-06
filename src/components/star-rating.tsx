@@ -12,7 +12,7 @@ export default function StarRating() {
       <h3 className='text-xl'>Select A Star To Leave A Review</h3>
       <div className='flex items-center gap-2.5'>
         {stars.map((star, i) => (
-          <button key={i} onClick={() => handleClick(i)} className='cursor-pointer'>
+          <button key={i} onMouseDown={() => handleClick(i)} className='cursor-pointer'>
             {star === 'unselected' ? (
               <svg
                 width='46'

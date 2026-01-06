@@ -4,10 +4,9 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useAppSelector } from '@/src/store/hooks';
-import { type Option } from '@/src/types';
 import { submitClaim } from '@/src/api';
 import TopBanner from '@/src/components/top-banner';
-import Dropdown from '@/src/components/dropdown';
+import AgreementsMenu from '@/src/components/agreements-menu';
 import RegistrationChecker from '@/src/components/registration-checker';
 import StarRating from '@/src/components/star-rating';
 import IDUpload from '@/src/components/id-upload-form';
@@ -15,12 +14,6 @@ import Party from '@/public/party.svg';
 import CourmacsLogo from '@/public/courmacs-logo.svg';
 import WhatsAppLogo from '@/public/whatsapp-logo.svg';
 import IDIcon from '@/public/id.svg';
-
-const agreementOptions = [
-  { label: 'Agreement 1', value: 'Agreement 1' },
-  { label: 'Agreement 2', value: 'Agreement 2' },
-  { label: 'Agreement 3', value: 'Agreement 3' }
-];
 
 export default function ThankYou() {
   const [isSubmitting, setIsSubmitting] = useState(true);
@@ -34,10 +27,6 @@ export default function ThankYou() {
       console.log(response);
     })();
   }, [formData]);
-
-  const handleSelect = (option: Option) => {
-    alert(option.value);
-  };
 
   return (
     <main className='px-4 pt-2 pb-0.5'>
@@ -57,12 +46,7 @@ export default function ThankYou() {
               </div>
               <Image src={Party} alt='Party Icon' />
             </div>
-            <Dropdown
-              placeholder='3 Agreements Found'
-              options={agreementOptions}
-              value={{ label: '', value: '' }}
-              onChange={handleSelect}
-            />
+            <AgreementsMenu />
           </section>
           <h2 className='pb-1 text-2xl font-semibold'>Feel like we&rsquo;ve missed something?</h2>
           <p className='pb-1.5'>
