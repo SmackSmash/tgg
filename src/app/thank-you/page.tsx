@@ -1,9 +1,11 @@
 'use client';
 
+import { useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useAppSelector } from '@/src/store/hooks';
 import { type Option } from '@/src/types';
+import { submitClaim } from '@/src/api';
 import TopBanner from '@/src/components/top-banner';
 import Dropdown from '@/src/components/dropdown';
 import RegistrationChecker from '@/src/components/registration-checker';
@@ -22,6 +24,14 @@ const agreementOptions = [
 
 export default function ThankYou() {
   const { firstname } = useAppSelector(({ form: { details } }) => details);
+  const formData = useAppSelector(({ form }) => form);
+
+  useEffect(() => {
+    (async () => {
+      const response = await submitClaim(formData);
+      console.log(response);
+    })();
+  }, [formData]);
 
   const handleSelect = (option: Option) => {
     alert(option.value);

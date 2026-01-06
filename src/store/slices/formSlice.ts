@@ -1,25 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import type { Address } from '@/src/types';
-
-type FormState = {
-  postcode: string | null;
-  address: Address | null;
-  details: {
-    title: string | null;
-    firstname: string | null;
-    surname: string | null;
-    dob: {
-      day: number | null;
-      month: number | null;
-      year: number | null;
-    };
-  };
-  contact: {
-    phone: string | null;
-    email: string | null;
-  };
-  signature: string | null;
-};
+import { type FormState } from '@/src/types';
 
 const initialState: FormState = {
   postcode: null,

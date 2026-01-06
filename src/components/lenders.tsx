@@ -33,7 +33,8 @@ export default function Lenders() {
         We will locate all of your vehicle finance agreements with all these 73 lenders.
       </p>
       <Link
-        href='_blank'
+        href=''
+        target='_blank'
         className='bg-lenders-grey mx-1.5 flex cursor-pointer items-center justify-center rounded-lg p-2'
       >
         View Lenders

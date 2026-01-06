@@ -1,4 +1,4 @@
-import type { Address } from '../types';
+import type { Address, FormState } from '../types';
 
 export function getAddress(postcode: string): Promise<Address> {
   console.log(`Fetching address data for ${postcode}`);
@@ -12,6 +12,19 @@ export function getAddress(postcode: string): Promise<Address> {
           town: 'Wilmslow',
           county: 'Cheshire'
         });
+      },
+      Math.ceil(Math.random() * 1000) + 500
+    );
+  });
+}
+
+export function submitClaim(form: FormState) {
+  console.log(`Submitting claim...`);
+
+  return new Promise(res => {
+    setTimeout(
+      () => {
+        res(form);
       },
       Math.ceil(Math.random() * 1000) + 500
     );
