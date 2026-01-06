@@ -14,10 +14,10 @@ export default function RegistrationChecker() {
   });
 
   return (
-    <form>
-      <div className='bg-reg-bg rounded-sm p-1'>
-        <p>Enter Vehicle Registration Number</p>
-        <div className='bg-reg-yellow relative w-full overflow-hidden rounded-lg border-2 pt-4 pb-3'>
+    <form className='pb-10'>
+      <div className='bg-reg-bg rounded-sm px-2 py-2.5'>
+        <p className='pb-2'>Enter Vehicle Registration Number</p>
+        <div className='bg-reg-yellow relative w-full overflow-hidden rounded-lg pt-4 pb-3 ring-2'>
           <input
             type='text'
             placeholder='ENTER REG'
@@ -34,10 +34,12 @@ export default function RegistrationChecker() {
         </div>
       </div>
       {errors.reg?.message && <FormError>errors.reg?.message</FormError>}
-      <CTALink button disabled={!isValid}>
-        Search
-        <Image src={ChevronRight} alt='Right Arrow Icon' />
-      </CTALink>
+      <div className='mt-1'>
+        <CTALink button disabled={!isValid}>
+          Search
+          <Image src={ChevronRight} alt='Right Arrow Icon' />
+        </CTALink>
+      </div>
     </form>
   );
 }
