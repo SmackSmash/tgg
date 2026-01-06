@@ -1,5 +1,6 @@
-import { type ChangeEvent } from 'react';
+import type { FormEvent, ChangeEvent } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { useAppDispatch, useAppSelector } from '@/src/store/hooks';
 import { addAddress } from '@/src/store';
@@ -23,13 +24,19 @@ export default function AddressForm() {
       county: address?.county || null
     }
   });
+  const router = useRouter();
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    router.push('/personal-details');
+  };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     dispatch(addAddress({ ...address, [e.target.name]: e.target.value }));
   };
 
   return (
-    <form className='flex flex-col pt-4 pb-1'>
+    <form onSubmit={handleSubmit} className='flex flex-col pt-4 pb-1'>
       <div className='flex flex-col pb-5'>
         <TextInput
           placeholder='Address Line 1'
@@ -72,7 +79,7 @@ export default function AddressForm() {
         {errors.county?.message && <FormError>{errors.county.message as string}</FormError>}
       </div>
       <p className='pb-5'>Please check the details above are correct before continuing.</p>
-      <CTALink href='/personal-details' disabled={!isValid}>
+      <CTALink button disabled={!isValid}>
         Next
         <Image src={ChevronRight} alt='Right Arrow Icon' />
       </CTALink>

@@ -11,7 +11,7 @@ export default function IDUpload() {
   } = useForm({ mode: 'onTouched' });
 
   return (
-    <form>
+    <form onSubmit={e => e.preventDefault()}>
       <label className='bg-upload-bg-blue border-upload-border-blue text-upload-text-blue mb-7 flex cursor-pointer justify-center gap-3 rounded-md border-2 py-5 text-[15px] font-bold'>
         <Image src={FileIcon} alt='File Icon' />
         Click to Upload

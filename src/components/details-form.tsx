@@ -1,7 +1,8 @@
 'use client';
 
-import { type ChangeEvent } from 'react';
+import type { FormEvent, ChangeEvent } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { useForm, Controller } from 'react-hook-form';
 import { useAppDispatch, useAppSelector } from '@/src/store/hooks';
 import { addDetails } from '@/src/store';
@@ -30,6 +31,12 @@ export default function DetailsForm() {
   } = useForm({
     mode: 'onTouched'
   });
+  const router = useRouter();
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    router.push('/contact-information');
+  };
 
   const handleSelect = (option: Option) => {
     dispatch(addDetails({ ...details, title: option.value }));
@@ -45,7 +52,7 @@ export default function DetailsForm() {
   };
 
   return (
-    <form className='flex flex-col pt-4'>
+    <form onSubmit={handleSubmit} className='flex flex-col pt-4'>
       <div className='w-fit pb-5'>
         <Controller
           name='title'
@@ -135,7 +142,7 @@ export default function DetailsForm() {
           )}
         </div>
       </div>
-      <CTALink href='/contact-information' disabled={!isValid}>
+      <CTALink button disabled={!isValid}>
         Next
         <Image src={ChevronRight} alt='Right Arrow Icon' />
       </CTALink>

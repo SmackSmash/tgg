@@ -14,7 +14,7 @@ export default function RegistrationChecker() {
   });
 
   return (
-    <form className='pb-10'>
+    <form onSubmit={e => e.preventDefault()} className='pb-10'>
       <div className='bg-reg-bg rounded-sm px-2 py-2.5'>
         <p className='pb-2'>Enter Vehicle Registration Number</p>
         <div className='bg-reg-yellow relative w-full overflow-hidden rounded-lg pt-4 pb-3 ring-2'>

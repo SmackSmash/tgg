@@ -1,7 +1,8 @@
 'use client';
 
-import { type ChangeEvent } from 'react';
+import type { FormEvent, ChangeEvent } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -33,13 +34,19 @@ export default function ContactForm() {
     register,
     formState: { isValid, errors }
   } = useForm<ContactFormData>({ mode: 'onTouched', resolver: zodResolver(contactSchema) });
+  const router = useRouter();
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    router.push('/signature');
+  };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     dispatch(addContact({ ...contact, [e.target.name]: e.target.value }));
   };
 
   return (
-    <form className='flex flex-col gap-1 pt-4.5 pb-7.5'>
+    <form onSubmit={handleSubmit} className='flex flex-col gap-1 pt-4.5 pb-7.5'>
       <h2 className='text-2xl font-semibold'>Your Mobile Number</h2>
       <p className='pb-1'>For example: 07123456789</p>
       <TextInput
@@ -67,7 +74,7 @@ export default function ContactForm() {
         />
         {errors.email?.message && <FormError>{errors.email.message as string}</FormError>}
       </div>
-      <CTALink href='/signature' disabled={!isValid}>
+      <CTALink button disabled={!isValid}>
         <Image src={SearchIcon} alt='Search Icon' />
         Find My Agreements
       </CTALink>

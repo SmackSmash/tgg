@@ -41,9 +41,11 @@ export default function CTALink({
   }
 
   if (button) {
-    <button className={buttonClasses} {...rest}>
-      {children}
-    </button>;
+    return (
+      <button className={buttonClasses} {...rest}>
+        {children}
+      </button>
+    );
   }
 
   return (
