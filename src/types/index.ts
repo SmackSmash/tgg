@@ -29,3 +29,9 @@ export type Option = {
   label: string | number;
   value: string | number;
 };
+
+export type Agreement = {
+  model: string;
+  financier: string;
+  date: number;
+};

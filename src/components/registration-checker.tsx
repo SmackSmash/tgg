@@ -1,20 +1,35 @@
+import { useState } from 'react';
 import Image from 'next/image';
 import { useForm } from 'react-hook-form';
+import { getAgreements } from '../api';
 import CTALink from './cta-link';
 import GBLogo from '@/public/gb-logo.svg';
 import ChevronRight from '@/public/chevron-right.svg';
 import FormError from './form-error';
+import type { Agreement } from '../types';
+
+type FormData = {
+  reg: string;
+};
 
 export default function RegistrationChecker() {
+  const [agreements, setAgreements] = useState<Agreement[]>([]);
+
   const {
     register,
+    handleSubmit,
     formState: { isValid, errors }
-  } = useForm({
+  } = useForm<FormData>({
     mode: 'onTouched'
   });
 
+  const onSubmit = async ({ reg }: FormData) => {
+    const response = await getAgreements(reg);
+    setAgreements(response);
+  };
+
   return (
-    <form onSubmit={e => e.preventDefault()} className='pb-10'>
+    <form onSubmit={handleSubmit(onSubmit)} className='pb-10'>
       <div className='bg-reg-bg rounded-sm px-2 py-2.5'>
         <p className='pb-2'>Enter Vehicle Registration Number</p>
         <div className='bg-reg-yellow relative w-full overflow-hidden rounded-lg pt-4 pb-3 ring-2'>
@@ -35,10 +50,22 @@ export default function RegistrationChecker() {
         {errors.reg?.message && <FormError>{errors.reg?.message as string}</FormError>}
       </div>
       <div className='mt-1'>
-        <CTALink button disabled={!isValid}>
-          Search
-          <Image src={ChevronRight} alt='Right Arrow Icon' />
-        </CTALink>
+        {!agreements.length ? (
+          <CTALink button disabled={!isValid}>
+            Search
+            <Image src={ChevronRight} alt='Right Arrow Icon' />
+          </CTALink>
+        ) : (
+          agreements.map(({ model, financier, date }, i) => {
+            return (
+              <div key={i}>
+                <p>{model}</p>
+                <p>{financier}</p>
+                <p>{date}</p>
+              </div>
+            );
+          })
+        )}
       </div>
     </form>
   );
