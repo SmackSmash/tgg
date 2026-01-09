@@ -29,7 +29,13 @@ export default function AgreementOption({ agreement }: AgreementOptionProps) {
           </span>
         </div>
         <div className='relative h-10 w-20'>
-          <Image src={`/${modelImg}.png`} alt={modelImg} fill={true} objectFit='contain' />
+          <Image
+            src={`/${modelImg}.png`}
+            alt={modelImg}
+            fill
+            className='object-cover'
+            sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+          />
         </div>
       </div>
     </div>

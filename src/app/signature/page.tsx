@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState, useRef } from 'react';
+import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useAppSelector, useAppDispatch } from '@/src/store/hooks';
@@ -25,14 +25,10 @@ export default function PersonalDetails() {
       firstname
     })
   );
+  if (!postcode) redirect('/address');
   const dispatch = useAppDispatch();
-  const router = useRouter();
   const signatureRef = useRef<SignatureCanvas | null>(null);
   const [hasSignature, setHasSignature] = useState(false);
-
-  useEffect(() => {
-    if (!postcode) router.push('/address');
-  }, [postcode, router]);
 
   const handleClear = () => {
     signatureRef.current?.clear();

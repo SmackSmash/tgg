@@ -6,6 +6,7 @@ import CTALink from './cta-link';
 import GBLogo from '@/public/gb-logo.svg';
 import ChevronRight from '@/public/chevron-right.svg';
 import FormError from './form-error';
+import RadioInput from './radio-input';
 import type { Agreement } from '../types';
 
 type FormData = {
@@ -18,6 +19,7 @@ export default function RegistrationChecker() {
   const {
     register,
     handleSubmit,
+    getValues,
     formState: { isValid, errors }
   } = useForm<FormData>({
     mode: 'onTouched'
@@ -27,6 +29,8 @@ export default function RegistrationChecker() {
     const response = await getAgreements(reg);
     setAgreements(response);
   };
+
+  console.log(getValues());
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className='pb-10'>
@@ -59,6 +63,7 @@ export default function RegistrationChecker() {
           agreements.map(({ model, financier, date }, i) => {
             return (
               <div key={i}>
+                <RadioInput />
                 <p>{model}</p>
                 <p>{financier}</p>
                 <p>{date}</p>

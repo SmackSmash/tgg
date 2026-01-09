@@ -1,7 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { redirect } from 'next/navigation';
 import { useAppSelector } from '@/src/store/hooks';
 import Image from 'next/image';
 import TopBanner from '@/src/components/top-banner';
@@ -11,11 +10,7 @@ import Envelope from '@/public/envelope.svg';
 
 export default function ContactInformation() {
   const { postcode } = useAppSelector(({ form: postcode }) => postcode);
-  const router = useRouter();
-
-  useEffect(() => {
-    if (!postcode) router.push('/address');
-  }, [postcode, router]);
+  if (!postcode) redirect('/address');
 
   return (
     <main className='px-4 py-2'>

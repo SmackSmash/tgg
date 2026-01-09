@@ -74,7 +74,7 @@ export default function ThankYou() {
             <p className='pb-4'>Your friends and family may have financed a vehicle before 2021.</p>
             <Link
               href='whatsapp://send?text=PCP Pal'
-              className='bg-whatsapp-green font-actor flex justify-center gap-2 rounded-lg py-3 text-2xl text-white'
+              className='bg-whatsapp-green font-actor flex w-full justify-center gap-2 rounded-lg py-3 text-2xl text-white'
             >
               <Image src={WhatsAppLogo} alt='WhatsApp Logo' />
               Share on WhatsApp
